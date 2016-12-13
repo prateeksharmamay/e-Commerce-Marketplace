@@ -1,0 +1,93 @@
+
+<div class="body-dashboard">
+	<nav class="navbar navbar-default min-height-30" data-spy="affix"
+		data-offset-top="10">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav header-list-padding">
+				<li class="dropdown margin-left-140"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> Hi {{userEmail}}!<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="profile">Profile</a></li>
+						<li><a ui-sref="logout">Logout</a></li>
+					</ul></li>
+				<li class="dropdown margin-left-935"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> My eBay <span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="sellItem">Sell Item</a></li>
+						<li><a ui-sref="auction">Bid/Auction</a></li>
+						<li><a ui-sref="sellingHistory">Selling History</a></li>
+						<li><a ui-sref="purchaseHistory">Purchase History</a></li>
+					</ul>
+					<li><a ui-sref="userCart"> <span
+						class="glyphicon glyphicon-shopping-cart" style="font-size: 18px;"></span></a>
+					</li>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="alert alert-success" ng-hide="bidPlaced">
+		<strong>{{bidStatus}}</strong>
+	</div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-7 cartPageHead"><span>Your Selling History</span></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-7 cartPanel">
+			<div class="panel panel-default cartDiv" ng-repeat="item in biddableItemList">
+				<div class="panel-heading cartHeading">
+					<span class="cartHeadingText1">Item:</span><span
+						class="cartHeadingText2">{{$index+1}}</span>
+				</div>
+				<div class="panel-body cartPaddingHorizontal-0">
+					<div class="row">
+						<div id="itemImage" class="col-md-3 cartImageDiv">
+							<div type="button" class="cartImageStyle" href="#"></div>
+						</div>
+
+						<div id="itemDescription" class="col-md-4 cartItemDescDiv">
+							<div class="col-md-12 cartItemNameDiv">
+								<a> <span class="cartItemName">{{item.itemName}}</span>
+								</a>
+							</div>
+
+							<div class="col-md-12" style="height: 50px;"></div>
+							<div class="col-md-12" style="height: 100px;">
+								<span class="cartItemDescription">Description: {{item.itemDescription}}</span><br>
+								<span class="cartItemDescription">Shipping From: {{item.shippingFrom}}</span>
+								<span class="cartItemDescription">List Date: {{item.listDate}}</span>
+							</div>
+						</div>
+
+						<div id="" class="col-md-3 cartItemDescDiv"
+							style="margin-top: 15px;">
+							<div class="col-md-12" style="height: 25px;">
+								<div class="col-sm-12 "> <label class="cartQty" for="bidAmount">Total Quantity: {{item.qty}}</div>
+								<div class="col-sm-12 "> <label class="cartQty" for="bidAmount">Quantity Left: {{item.qtyLeft}}</div>
+								</span>
+							</div>
+						</div>
+
+						<div id="" class="col-md-2 cartItemPriceDiv">
+							<span class=""> 
+								<label class="cartQty" style="margin-left: 40px;" for="">Price/Item:</label>
+							</span>
+							<span class="cartItemPrice" ng-model="itemTotal">${{item.itemPrice}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12" style="padding-left: 0px;margin-bottom: 15px;">
+				<button type="button" class="btn btn-primary" style=" width: 40%;float: left;margin-top: 25px;" ui-sref="userDashboard">Continue Shopping</button>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+</div>

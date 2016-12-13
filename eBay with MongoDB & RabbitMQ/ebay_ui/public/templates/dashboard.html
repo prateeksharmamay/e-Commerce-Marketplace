@@ -1,0 +1,86 @@
+
+<div class="body-dashboard">
+	<nav class="navbar navbar-default min-height-30" data-spy="affix"
+		data-offset-top="10">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav header-list-padding">
+				<li class="dropdown margin-left-140"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> Hi {{userEmail}}!<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="profile">Profile</a></li>
+						<li><a ui-sref="logout">Logout</a></li>
+					</ul></li>
+				<li><a style="font-size: 12px;line-height: 20px;" class="text-black">Last Login: {{lastLoginTime}}</a></li>
+				<li class="dropdown margin-left-700"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> My eBay <span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="sellItem">Sell Item</a></li>
+						<li><a ui-sref="auction">Bid/Auction</a></li>
+						<li><a ui-sref="sellingHistory">Selling History</a></li>
+						<li><a ui-sref="purchaseHistory">Purchase History</a></li>
+					</ul>
+				<li><a ui-sref="userCart"> <span
+						class="glyphicon glyphicon-shopping-cart" style="font-size: 18px;"></span></a></li>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="alert alert-success" ng-hide="addedToCart">
+		<strong>{{cartMsg}}</strong>
+	</div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-7 cartPageHead"><span>Daily Deals</span></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-7 cartPanel">
+			<div class="panel panel-default cartDiv" ng-repeat="item in itemsList">
+				<div class="panel-heading cartHeading">
+					<span class="cartHeadingText1">Seller:</span><span
+						class="cartHeadingText2">{{item.sellerName}}</span>
+				</div>
+				<div class="panel-body cartPaddingHorizontal-0">
+					<div class="row">
+						<div id="itemImage" class="col-md-3 cartImageDiv">
+							<div type="button" class="cartImageStyle" href="#"></div>
+						</div>
+
+						<div id="itemDescription" class="col-md-4 cartItemDescDiv">
+							<div class="col-md-12 cartItemNameDiv">
+								<a> <span class="cartItemName">{{item.itemName}}</span>
+								</a>
+							</div>
+
+							<div class="col-md-12" style="height: 50px;"></div>
+							<div class="col-md-12" style="height: 100px;">
+								<span class="cartItemDescription">Description: {{item.itemDescription}}</span><br>
+								<span class="cartItemDescription">Shipping From: {{item.shippingFrom}}</span>
+							</div>
+						</div>
+
+						<div id="" class="col-md-3 cartItemDescDiv"
+							style="margin-top: 15px;">
+							<div class="col-md-12" style="bottom: 15px;padding-left: 0;margin-left: 0px;">
+								<button type="button" class="btn btn-success cartBtn" ng-click="addToCart(item)">Add To Cart</button>
+							</div>
+						</div>
+
+						<div id="" class="col-md-2 cartItemPriceDiv">
+							<span class=""> 
+								<label class="cartQty" style="margin-left: 40px;" for="">Item Price:</label>
+							</span>
+							<span class="cartItemPrice" ng-model="itemTotal">${{item.itemPrice}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>

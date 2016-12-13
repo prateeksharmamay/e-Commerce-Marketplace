@@ -1,0 +1,89 @@
+<div class="loginBody">
+	<nav class="navbar text-center" style="margin-bottom: 0px">
+		<div class="container-fluid">
+			<div class="navbar-header"></div>
+			<div class="text-center text-white text-size-40"
+				style="margin-left: -90px;">
+				<img src="stylesheets/EBay_logo.png" class="thumb-image">
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div style="width: 400px" class="divBorder">
+					<ul class="nav nav-tabs bgColor">
+						<li class="active width-50 tabs-style"><a data-toggle="tab"
+							href="#signin1">Sign in</a></li>
+						<li class="width-50 tabs-style"><a data-toggle="tab"
+							href="#register1">Register</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="signin1" class="signInDiv tab-pane fade in active">
+							<div class="" ng-hide="error">
+								<strong>{{msg}}</strong>
+							</div>
+							<div>
+								<form class="form-horizontal" action="" method="">
+									<div class="col-sm-12 field-margin">
+										<input type="email" ng-model="email" class="form-control"
+											id="email" placeholder="Email">
+									</div>
+									<div class="col-sm-12 field-margin">
+										<input type="password" ng-model="password"
+											class="form-control" id="password" placeholder="Password">
+									</div>
+									<div class="col-sm-12 field-margin">
+										<button type="submit" style="width: 100%" ng-click="signin()"
+											class="btn btn-primary btnLayout">Sign in</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div id="register1" class="signUpDiv tab-pane fade">
+							<div class="" ng-hide="error1">
+								<strong>{{msg}}</strong>
+							</div>
+							<div>
+								<form class="form-horizontal" action="" method="">
+									<div class="col-sm-12 field-margin">
+										<input type="email" class="form-control" ng-model="email"
+											placeholder="Email" required="required">
+									</div>
+									<div class="col-sm-12 field-margin">
+										<input type="email" class="form-control" ng-model="emailCopy"
+											placeholder="Re-enter Email" required="required">
+									</div>
+									<div class="col-sm-12 field-margin">
+										<input type="password" class="form-control" ng-model="password"
+											placeholder="Password">
+									</div>
+									<div class="col-sm-12 field-margin">
+										<div class="col-sm-6"
+											style="padding-left: 0; padding-right: 10px;">
+											<input type="text" class="form-control" ng-model="fname"
+												placeholder="First Name" required="required">
+										</div>
+										<div class="col-sm-6"
+											style="padding-left: 10; padding-right: 0px;">
+											<input type="text" class="form-control" ng-model="lname"
+												placeholder="Last Name" required="required">
+										</div>
+									</div>
+									<div class="col-sm-12 field-margin">
+										<button type="submit" style="width: 100%"
+											class="btn btn-primary btnLayout" ng-click="registerUser()">Register</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+
+</div>

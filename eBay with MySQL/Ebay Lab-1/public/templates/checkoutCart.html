@@ -1,0 +1,110 @@
+
+<div class="body-dashboard">
+	<nav class="navbar navbar-default min-height-30" data-spy="affix"
+		data-offset-top="10">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav header-list-padding">
+				<li class="dropdown margin-left-140"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> Hi {{userEmail}}!<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="profile">Profile</a></li>
+						<li><a ui-sref="logout">Logout</a></li>
+					</ul></li>
+				<li class="dropdown margin-left-935"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> My eBay <span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="sellItem">Sell Item</a></li>
+						<li><a ui-sref="auction">Bid/Auction</a></li>
+						<li><a ui-sref="sellingHistory">Selling History</a></li>
+						<li><a ui-sref="purchaseHistory">Purchase History</a></li>
+					</ul>
+					<li><a ui-sref="userCart"> <span
+						class="glyphicon glyphicon-shopping-cart" style="font-size: 18px;"></span></a>
+					</li>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="alert alert-success" ng-hide="paymentNotification">
+		<strong>{{paymentMsg}}</strong>
+	</div>
+	<div class="alert alert-danger" ng-hide="errorNotification">
+		<strong>{{errorMsg}}</strong>
+	</div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-7 cartPageHead">
+				<span>Your eBay Shopping Cart</span>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-7 cartPanel">
+			<div layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8" style="border: 1px solid #ddd;margin-top:15px;">
+						<md-input-container class="md-block"> 
+							<label>Card Number</label>
+							<input class="inputBorder" required="" ng-model="creditcard.ccNumber" maxlength="16" placeholder="16 digits"> 
+						</md-input-container>
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block" flex-gt-sm="">
+								<label>Expiration Date</label>
+								<input class="inputBorder" required="" ng-model="creditcard.expiryDate" placeholder="MM/YYYY">
+							</md-input-container>
+		
+							<md-input-container class="md-block" flex-gt-sm="">
+								<label>Security Code</label> 
+								<input class="inputBorder" required="" ng-model="creditcard.cvv" maxlength="4" placeholder="3 or 4 digits">
+							</md-input-container>
+						</div>
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block" flex-gt-sm="">
+								<label>First Name</label>
+								<input class="inputBorder" required="" ng-model="creditcard.firstName" placeholder="">
+							</md-input-container>
+		
+							<md-input-container class="md-block" flex-gt-sm="">
+								<label>Last Name</label>
+								<input class="inputBorder" required="" ng-model="creditcard.lastName">
+							</md-input-container>
+						</div>
+						<md-input-container class="md-block"> 
+							<label>Address</label>
+							<input class="inputBorder" required="" ng-model="creditcard.address" placeholder="Complete Address"> 
+						</md-input-container>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+			<div class="col-md-12"
+				style="padding-left: 0px; margin-bottom: 15px;">
+				<button type="button" class="btn btn-primary"
+					style="width: 40%; float: left; margin-top: 25px;"
+					ui-sref="userDashboard">Continue Shopping</button>
+				<button type="button" class="btn btn-danger"
+					style="width: 40%; float: right; margin-top: 25px;"
+					ng-click="makePayment()" ng-disabled="stopPayment">Make Payment</button>
+			</div>
+		</div>
+		<div class="col-md-2 cartPanelPrice" style="height:150px !important;min-height: 150px !important;">
+			<div class="cartPriceTab">
+				<span style="line-height: 40px;">Cart Summary</span> <span
+					class="cartItemDescription"
+					style="float: right; line-height: 40px;">({{cartItemsNo}}
+					item)</span>
+			</div>
+			<hr
+				style="border-color: black; margin-top: 5px; margin-bottom: 10px;">
+			<div class="cartPriceTab">Total: ${{totalAmount}}</div>
+		</div>
+		<div class="col-md-2">
+	</div>
+
+</div>

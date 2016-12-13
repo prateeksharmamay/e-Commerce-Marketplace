@@ -1,0 +1,116 @@
+
+<div class="body-dashboard">
+	<nav class="navbar navbar-default min-height-30" data-spy="affix"
+		data-offset-top="10">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav header-list-padding">
+				<li class="dropdown margin-left-140"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> Hi {{userEmail}}!<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="profile">Profile</a></li>
+						<li><a ui-sref="logout">Logout</a></li>
+					</ul></li>
+				<li class="dropdown margin-left-935"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> My eBay <span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="sellItem">Sell Item</a></li>
+						<li><a ui-sref="auction">Bid/Auction</a></li>
+						<li><a ui-sref="sellingHistory">Selling History</a></li>
+						<li><a ui-sref="purchaseHistory">Purchase History</a></li>
+					</ul>
+					<li><a ui-sref="userCart"> <span
+						class="glyphicon glyphicon-shopping-cart" style="font-size: 18px;"></span></a>
+					</li>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="alert alert-danger" ng-hide="inventoryMsg">
+		<strong>{{checkoutMsg}}</strong>
+	</div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-7 cartPageHead"><span>Your eBay Shopping Cart</span></div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-7 cartPanel">
+			<div class="panel panel-default cartDiv" ng-repeat="item in itemsList">
+				<div class="panel-heading cartHeading">
+					<span class="cartHeadingText1">Seller:</span><span
+						class="cartHeadingText2">{{item.sellerName}}</span>
+				</div>
+				<div class="panel-body cartPaddingHorizontal-0">
+					<div class="row">
+						<div id="itemImage" class="col-md-3 cartImageDiv">
+							<div type="button" class="cartImageStyle" href="#"></div>
+						</div>
+
+						<div id="itemDescription" class="col-md-5 cartItemDescDiv">
+							<div class="col-md-12 cartItemNameDiv">
+								<a> <span class="cartItemName">{{item.itemName}}</span>
+								</a>
+							</div>
+
+							<div class="col-md-12" style="height: 50px;"></div>
+							<div class="col-md-12" style="height: 100px;">
+								<span class="cartItemDescription">{{item.itemDescription}}</span><br>
+								<span class="cartItemDescription">Shipping From: {{item.shippingFrom}}</span>
+							</div>
+						</div>
+
+						<div id="" class="col-md-2 cartItemDescDiv"
+							style="margin-top: 15px;">
+							<div class="col-md-12" style="height: 25px;">
+								<span class=""> <label class="cartQty" for="qty">Quantity:</label>
+									<input id="qty" class="form-control cartQtyField" type="number"
+									min="1" max="{{item.qtyLeft}}" value="1" ng-change="calcTotal(item.itemId,qty,item.itemPrice)" ng-model="qty" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="1">
+								</span>
+							</div>
+						</div>
+
+						<div id="" class="col-md-2 cartItemPriceDiv">
+							<span class="cartItemPrice" ng-model="itemTotal">${{qty * item.itemPrice}}</span>
+							<div class="col-md-12" style="top: 135px;padding-left: 0;">
+							<a ng-click="removeItemFromCart(item.itemId)"> <span class="cartRemoveLink"><button class="btn btn-danger glyphicon glyphicon-trash"></button><span>Remove</span></span>
+							</a>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12" style="padding-left: 0px;margin-bottom: 15px;">
+				<button type="button" class="btn btn-primary" style=" width: 40%;float: left;margin-top: 25px;" ui-sref="userDashboard">Continue Shopping</button>
+			</div>
+		</div>
+		<div class="col-md-2 cartPanelPrice">
+			<div class="cartPriceTab">
+				<span style="line-height: 40px;">Cart Summary</span> <span class="cartItemDescription" style="float: right;line-height: 40px;">({{cartItemsNo}} item)</span>
+			</div>
+			<hr style="border-color:black;margin-top:5px;margin-bottom:10px;">
+			<div class="cartPriceTab">
+				Total: ${{cartTotal}}
+			</div>
+			<br>
+			<div>
+				<button type="button" class="btn btn-primary" style="width: 100%;" ng-click="checkoutStateTransition()">Proceed To Checkout</button>
+			</div>
+			<br>
+			<div class="ebayGuarantee">
+				<img alt="" src="stylesheets/eMBG_stacked.png">
+			</div>
+			<br>
+			<div>
+				<span class="cartItemDescription" style="text-align: justify;">Covers your purchase price plus original shipping on virtually all items. Get the item you ordered or get your money back.</span>
+			</div>
+			
+		 </div>
+		<div class="col-md-2"></div>
+	</div>
+
+</div>

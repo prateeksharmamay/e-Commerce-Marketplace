@@ -1,0 +1,20 @@
+a {
+	color: #00B7FF;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: #333;
+	color: #FFFFFF;
+	padding: 25px;
+}
+
+
+h4 {
+	color: #e60000;
+}

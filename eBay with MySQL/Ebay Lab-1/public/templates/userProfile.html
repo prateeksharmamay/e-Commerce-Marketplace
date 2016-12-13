@@ -1,0 +1,105 @@
+
+
+<div class="body-dashboard">
+	<nav class="navbar navbar-default min-height-30" data-spy="affix"
+		data-offset-top="10">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav header-list-padding">
+				<li class="dropdown margin-left-140"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> Hi {{userEmail}}!<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="profile">Profile</a></li>
+						<li><a ui-sref="logout">Logout</a></li>
+					</ul></li>
+				<li class="dropdown margin-left-935"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> My eBay <span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="sellItem">Sell Item</a></li>
+						<li><a ui-sref="auction">Bid/Auction</a></li>
+						<li><a ui-sref="sellingHistory">Selling History</a></li>
+						<li><a ui-sref="purchaseHistory">Purchase History</a></li>
+					</ul>
+				<li><a ui-sref="userCart"> <span
+						class="glyphicon glyphicon-shopping-cart" style="font-size: 18px;"></span></a></li>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="alert alert-success" ng-hide="profileUpdated">
+		<strong>{{msg}}</strong>
+	</div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 cartPageHead"><span>Update Your Profile</span></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="col-md-3"></div>
+		<div class="col-md-6 sellItemsPanel">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-9" style="margin-top: 55px">
+					<form class="form-horizontal" class="">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="fname">First Name:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="fname" ng-model="user.fname"
+									placeholder="Enter First Name" autofocus="autofocus" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="lname">Last Name:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="lname" ng-model="user.lname"
+									placeholder="Enter Last Name" autofocus="autofocus" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="ebayHandle">Ebay Handle:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="ebayHandle" ng-model="user.ebayHandle"
+									placeholder="Enter User ID" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="dob">Date of Birth:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="dob" ng-model="user.dob"
+									placeholder="Date Of Birth" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="contact">Contact Number:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="contact" ng-model="user.contact"
+									placeholder="Contact Number" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="location">Location:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="location" ng-model="user.location"
+									placeholder="Location" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-primary pull-left"
+									style="width: 50%" ng-click="updateProfile()">Update Profile</button>
+									<!-- <span class="glyphicon glyphicon-ok itemlist" aria-hidden="true"
+									ng-show="status"></span>{{msg}} -->
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+</div>

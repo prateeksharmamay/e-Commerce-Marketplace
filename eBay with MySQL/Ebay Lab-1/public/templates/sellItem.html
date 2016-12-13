@@ -1,0 +1,102 @@
+
+
+<div class="body-dashboard">
+	<nav class="navbar navbar-default min-height-30" data-spy="affix"
+		data-offset-top="10">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav header-list-padding">
+				<li class="dropdown margin-left-140"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> Hi {{userEmail}}!<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="profile">Profile</a></li>
+						<li><a ui-sref="logout">Logout</a></li>
+					</ul></li>
+				<li class="dropdown margin-left-935"><a id=""
+					class="dropdown-toggle text-black" data-toggle="dropdown" href=""
+					style="font-size: 12px"> My eBay <span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a ui-sref="sellItem">Sell Item</a></li>
+						<li><a ui-sref="auction">Bid/Auction</a></li>
+						<li><a ui-sref="sellingHistory">Selling History</a></li>
+						<li><a ui-sref="purchaseHistory">Purchase History</a></li>
+					</ul>
+				<li><a ui-sref="userCart"> <span
+						class="glyphicon glyphicon-shopping-cart" style="font-size: 18px;"></span></a></li>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="alert alert-success" ng-hide="itemAdded">
+		<strong>{{itemMsg}}</strong>
+	</div>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 cartPageHead"><span>Describe & Sell your Item</span></div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="col-md-3"></div>
+		<div class="col-md-6 sellItemsPanel">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-9" style="margin-top: 55px">
+					<form class="form-horizontal" class="">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="itemName">Item Name:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="itemName" ng-model="itemName"
+									placeholder="Enter Item Name" autofocus="autofocus" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="itemDescription">Description:</label>
+							<div class="col-sm-9">
+								<textarea type="text" class="form-control" id="itemDescription" ng-model="itemDescription"
+									placeholder="Enter Item Description" required="required"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="itemPrice">Price:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="itemPrice" ng-model="itemPrice"
+									placeholder="Enter Price" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="itemQty">Quantity:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="itemqty" ng-model="itemQty"
+									placeholder="Number of Available Units" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sellerLocation">Location:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="sellerlocation" ng-model="sellerLocation"
+									placeholder="Shipping Location" required="required">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-primary pull-left"
+									style="width: 50%" ng-click="addToItemList(0)">List It</button>
+									<!-- <span class="glyphicon glyphicon-ok itemlist" aria-hidden="true"
+									ng-show="status"></span>{{msg}} -->
+							</div>
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-primary pull-right"
+								style="width: 50%" ng-click="addToItemList(1)">Auction</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+</div>
